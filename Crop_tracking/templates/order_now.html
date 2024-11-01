@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container my-5">
+        <h2 class="text-center mb-4">Place Your Order</h2>
+        <form action="{{ url_for('place_order') }}" method="POST">
+            
+            <div class="form-group">
+                <label for="quantity">Quantity (in quintals)</label>
+                <input type="number" class="form-control" id="quantity" name="quantity" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="contact_info">Contact Information</label>
+                <input type="tel" class="form-control" id="contact_info" name="contact_info" required placeholder="Enter your phone number or email">
+            </div>
+            
+            <div class="form-group">
+                <label for="delivery_address">Delivery Address</label>
+                <textarea class="form-control" id="delivery_address" name="delivery_address" rows="3" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-block">Submit Order</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumer Dashboard</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>Available Products</h2>
+        </div>
+        
+        {% if products %}
+        <table class="table table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>Crop Name</th>
+                    <th>Type</th>
+                    <th>Fertilizers Used</th>
+                    <th>Moisture Content (%)</th>
+                    <th>Price per Quintal ($)</th>
+                    <th>Year of Production</th>
+                    <th>Location</th>
+                    <th>Action</th> <!-- New column for the action button -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <td>{{ product['crop_name'] }}</td>
+                    <td>{{ product['crop_type'] }}</td>
+                    <td>{{ product['fertilizers_used'] }}</td>
+                    <td>{{ product['moisture_content'] }}</td>
+                    <td>{{ product['price_per_quintal'] }}</td>
+                    <td>{{ product['year_of_production'] }}</td>
+                    <td>{{ product['location'] }}</td>
+                    <td style="width: 150px;">
+                        <a href="ordernow?id={{product['_id']}}"class="btn btn-success">Order now</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            <p class="text-center">You have no products available at this time.</p>
+        {% endif %}
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

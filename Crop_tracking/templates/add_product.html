@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Add New Crop Product</h2>
+        <form action="{{ url_for('add_product') }}" method="POST">
+            <div class="form-group">
+                <label for="crop_name">Crop Name</label>
+                <input type="text" name="crop_name" class="form-control" name="crop_name" required>
+            </div>
+            <div class="form-group">
+                <label for="fertilizers_used">Fertilizers Used</label>
+                <input type="text" name="fertilizers_used" class="form-control" name="fertilizers_used" placeholder="List fertilizers used">
+            </div>
+            <div class="form-group">
+                <label for="crop_type">Crop Type</label>
+                <select name="crop_type" class="form-control" name="crop_type" required>
+                    <option value="organic">Organic</option>
+                    <option value="inorganic">Inorganic</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="price_per_quintal">Price per Quintal</label>
+                <input type="number" name="price_per_quintal" class="form-control" name="price_per_quintal" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="year_of_production">Year of Production</label>
+                <input type="number" name="year_of_production" class="form-control" naem="year_of_production" min="2000" max="2024" required>
+            </div>
+            <div class="form-group">
+                <label for="location">Location</label>
+                <input type="text" name="location" class="form-control" name="location" required>
+            </div>
+            <div class="form-group">
+                <label for="moisture_content">Moisture Content (%)</label>
+                <input type="number" name="moisture_content" class="form-control" name="moisture_content" step="0.1" min="0" max="100">
+            </div>
+            <div class="form-group">
+                <label for="pesticides_used">Pesticides Used</label>
+                <input type="text" name="pesticides_used" class="form-control" name="pesticides_used" placeholder="List pesticides used, if any">
+            </div>
+            <div class="form-group">
+                <label for="soil_ph">Soil pH</label>
+                <input type="number" name="soil_ph" class="form-control" name="soil_ph" step="0.1" min="0" max="14">
+            </div>
+            <div class="form-group">
+                <label for="harvest_method">Harvest Method</label>
+                <select name="harvest_method" class="form-control" name="harvest_method" required>
+                    <option value="manual">Manual</option>
+                    <option value="mechanical">Mechanical</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Add Product</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
